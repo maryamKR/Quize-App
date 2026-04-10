@@ -11,7 +11,7 @@
 </head>
 <style type="text/tailwindcss">
   @theme {
-    /*-- COLORS --*/
+    /*---- COLORS ----*/
       --color-grey-500: #626C7F;
       --color-grey-50: #F4F6FA;
 
@@ -38,7 +38,7 @@
       --font-Rubik: "Rubik", sans-serif;
       --font-inherit: inherit;
 
-      /* Typography */
+      /*---- Typography ----*/
       --text-prst-1: 144px;
         --text-prst-1--line-height: 100%;
       --text-prst-1-sm: 88px;
@@ -128,6 +128,7 @@
       @apply text-prst-6 italic tracking-normal
     }
 
+    /*---- SPACING ----*/
     .spacing-100 {@apply w-[8px]}
     .spacing-200 {@apply w-[16px]}
     .spacing-300 {@apply w-[24px]}
@@ -138,6 +139,36 @@
     .spacing-1600 {@apply w-[128px]}
     .spacing-1800 {@apply w-[144px]}
     .spacing-2300 {@apply w-[184px]}
+
+
+    /*---- COMPONENTS ----*/
+
+    /* Logo */
+    .logo {@apply flex md:gap-[24px] sm:gap-[16px]}
+    .logo_bg_icon {@apply md:w-[56px] md:h-[56px] sm:w-[40px] sm:h-[40px] rounded-[8px] flex items-center justify-center bg-purple-100}
+
+    /* Light/Dark Mode Button */
+    .light_dark_mode {@apply flex md:gap-[16px] sm:gap-[8px] items-center}
+
+    /* Progress Bar */
+    .progress {@apply w-full h-[16px] bg-bleu-850 p-[4px] rounded-[999px] }
+    .progress_bar {@apply md:w-[300px] sm:w-[152px] h-[8px] bg-purple-600 rounded-[104px] }
+
+    /* Wrong Answer Notificatio */
+    .wrong_answer {@apply flex items-center gap-[8px] text-red-500 }
+
+    /* Button Submit*/
+    .btn_sub {@apply w-full md:h-[92px] sm:h-[56px] p-[32px] rounded-[24px] bg-purple-600 text-center shadow-[0px_16px_40px_0px_#8FA0C124] hover:bg-purple-100}
+    
+    /* Button with Icon*/
+    .btn_icon {@apply flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] bg-bleu-850 shadow-[0px_16px_40px_0px_#313E5124] }
+    .btn_bg_icon {@apply md:w-[56px] md:h-[56px] sm:w-[40px] sm:h-[40px] rounded-[8px] flex items-center justify-center bg-orange-50}
+
+    /* Button Options */
+/* Note: style deyal had l button nafsso li lfo9 "btn_icon" */
+
+
+
 
 </style>
 <body>
