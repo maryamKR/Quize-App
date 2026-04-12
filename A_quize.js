@@ -107,6 +107,7 @@ function selectAnswer(e) {
     const answer = quizData[subject][currentQuestionIndex].answer;
 
      const letterSpan = selectedButton.children[0]; 
+     const alert = document.getElementById("alert")
 
     if (selectedText === answer) {
         score++;

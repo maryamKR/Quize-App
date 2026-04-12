@@ -158,9 +158,6 @@
     .progress {@apply w-full h-[16px] bg-bleu-850 p-[4px] rounded-[999px] }
     .progress_bar {@apply md:w-[300px] sm:w-[152px] h-[8px] bg-purple-600 rounded-[104px] }
 
-    /* Wrong Answer Notificatio */
-    .wrong_answer {@apply flex items-center gap-[8px] text-red-500 }
-
     /* Button Submit*/
     .btn_sub {@apply w-full md:h-[92px] sm:h-[56px] p-[32px] rounded-[24px] bg-purple-600 text-center shadow-[0px_16px_40px_0px_#8FA0C124] hover:bg-purple-100}
     
@@ -218,7 +215,7 @@
           <p id="out_of" class="text-color-grey-500 text-2xl italic"></p>
         </div>
 
-        <button
+        <button id="replay"
           class="w-full py-6 bg-purple-600 hover:bg-purple-500 text-white text-2xl font-bold rounded-3xl transition-all shadow-lg shadow-purple-900/20">
           Play Again
         </button>
@@ -227,7 +224,7 @@
     </section>
       
   </div>
-  <script src="A_quize.js"></script>
+  <script src="A_score.js"></script>
 </body>
 
 </html>
