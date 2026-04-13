@@ -54,6 +54,8 @@ const optionsElement = document.getElementById("options")
 const btnNext = document.getElementById("next")
 const ques_counter = document.getElementById("Ques_counter")
 
+let selectedOptionText = ""
+
 let currentQuestionIndex = 0
 let score=0
 
@@ -75,6 +77,7 @@ function StartQuize() {
 }
 
 function showQuestion() {
+  selectedOptionText =""
   let currentQuestion = quizData[subject][currentQuestionIndex];
   let ques_Num = currentQuestionIndex + 1
   ques_counter.innerHTML= `Question ${ques_Num} of ${len_question}`
@@ -111,27 +114,15 @@ function showQuestion() {
 
 }
 
-/*const progressClasses = [
-    "spacing-100",
-    "spacing-200",
-    "spacing-300",
-    "spacing-400",
-    "spacing-500",
-    "spacing-600",
-    "spacing-800",
-    "spacing-1600",
-    "spacing-1800",
-    "spacing-2300",
-]*/
 let progress_bar = document.getElementById("progress")
 function selectAnswer(e) {
     const selectedButton = e.currentTarget;
-    const selectedText = selectedButton.children[1].innerText;
+    let selectedText = selectedButton.children[1].innerText;
 
     const answer = quizData[subject][currentQuestionIndex].answer;
-
+    
      const letterSpan = selectedButton.children[0]; 
-     const alert = document.getElementById("alert")
+     selectedOptionText = selectedText;
     
 
       if (selectedText === answer) {
@@ -139,15 +130,13 @@ function selectAnswer(e) {
         selectedButton.classList.add("correct_answer");
         letterSpan.classList.add("correct_icons");
 
-        /*progress_bar.classList.remove(...progressClasses)
-        progress_bar.classList.add(progressClasses[score-1])
-        console.log(progressClasses[score-1])*/
         let progress = (score / len_question) * 100
         progress_bar.style.width = `${progress}%`
       }
       else{
         selectedButton.classList.add("wrong_answer");
         letterSpan.classList.add("wrong_icons");
+        goToscore()
       }
       
       for (let i = 0; i < optionsElement.children.length; i++) {
@@ -168,15 +157,20 @@ function nextButton() {
 
 
 btnNext.addEventListener("click", () => {
-     const alert = document.getElementById("alert")
-
-  if (currentQuestionIndex < len_question - 1) {
-    nextButton();
-  } else {
-    // goToscore();
+  const alert = document.getElementById("alert")
+if (!selectedOptionText) {
       alert.classList.add("wrong_msg");
       alert.classList.remove("hidden");
-  }
+      return;
+    }
+
+  if (currentQuestionIndex < len_question - 1) {
+      nextButton();
+    } else {
+      goToscore(); 
+    }
+  
+  
 });
 
 

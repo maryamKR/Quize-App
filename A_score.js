@@ -9,6 +9,6 @@ document.getElementById("out_of").innerText = total;
 let replayBtn = document.getElementById("replay")
 const subject = new URLSearchParams(window.location.search).get("subject");
 replayBtn.addEventListener("click", () => {
-  window.location.href = `A_quize.html?subject=${subject}`;
+  window.location.href = `A_subject.html`;
 });
 
