@@ -131,6 +131,7 @@ function selectAnswer(e) {
     const answer = quizData[subject][currentQuestionIndex].answer;
 
      const letterSpan = selectedButton.children[0]; 
+<<<<<<< HEAD
      const alert = document.getElementById("alert")
     
 
@@ -153,6 +154,19 @@ function selectAnswer(e) {
       for (let i = 0; i < optionsElement.children.length; i++) {
         optionsElement.children[i].style.pointerEvents = "none";
       }
+=======
+
+    if (selectedText === answer) {
+        // score++;
+        selectedButton.classList.add("correct_answer");
+        letterSpan.classList.add("correct_icons");
+    }
+    else{
+      selectedButton.classList.add("wrong_answer");
+      letterSpan.classList.add("wrong_icons");
+
+    }
+>>>>>>> 60b5257 (A_quiz2 removed / button + selection functions edit)
 }
 
 
@@ -168,10 +182,14 @@ function nextButton() {
 
 
 btnNext.addEventListener("click", () => {
+     const alert = document.getElementById("alert")
+
   if (currentQuestionIndex < len_question - 1) {
     nextButton();
   } else {
-    goToscore();
+    // goToscore();
+      alert.classList.add("wrong_msg");
+      alert.classList.remove("hidden");
   }
 });
 
