@@ -68,9 +68,9 @@
       --text-prst-6: 20px;
         --text-prst-6--line-height: 150%;
     }
-
+    /*  add instead for dark theme for each html page : dark:bg-bleu-950 dark:text-white transition-colors duration-300  */
     body { 
-      @apply font-Rubik text-white bg-bleu-950 min-h-screen
+       @apply font-Rubik min-h-screen dark:bg-bleu-950 dark:text-white transition-colors duration-300
     }
     button { @apply font-inherit }
 
@@ -186,7 +186,8 @@
       <div class="light_dark_mode">
         <img src="assets/fluent_weather-sunny-16-regular.svg" alt="sun" class="w-[24px] h-[24px]" />
         <label class="relative inline-flex items-center cursor-pointer">
-          <input type="checkbox" class="sr-only peer" />
+          <input type="checkbox" class="sr-only peer" id="theme-toggle" />
+          /* add id for each input of the toggle button to be able to target it in js and add event listener to it */
           <div
             class="w-12 h-7 bg-purple-600 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all">
           </div>

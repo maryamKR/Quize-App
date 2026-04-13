@@ -191,4 +191,30 @@ btnNext.addEventListener("click", () => {
 function goToscore() {
   window.location.href = `A_score.html?subject=${subject}&score=${score}&total=${len_question}`;
 } 
+// funtion to switch between light and dark mode 
+const themeToggle = document.getElementById("theme-toggle");
+
+function toggleDarkMode(isDark) {
+    if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener("change", () => {
+        toggleDarkMode(themeToggle.checked);
+    });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        if (themeToggle) themeToggle.checked = true;
+    }
+});
 StartQuize()
