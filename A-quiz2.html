@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+    /*---- COLORS ----*/
+      --color-grey-500: #626C7F;
+      --color-grey-50: #F4F6FA;
+
+      --color-bleu-950: #2D3949;
+      --color-bleu-900: #313E51;
+      --color-bleu-850: #3B4D66;
+      --color-bleu-500: #306AFF;
+      --color-bleu-300: #ABC1E1;
+      --color-bleu-100: #EDF1F9;
+      --color-bleu-50: #EBF0FF;
+
+      --color-green-500: #2FD887;
+      --color-green-100: #E0FDEF;
+
+      --color-purple-600: #A729F5;
+      --color-purple-100: #F6E7FF;
+
+      --color-orange-400: #FF7E35;
+      --color-orange-50: #FFF5ED;
+
+      --color-red-500: #EE5454;
+
+      /* ---- font ---- */
+      --font-Rubik: "Rubik", sans-serif;
+      --font-inherit: inherit;
+
+      /*---- Typography ----*/
+      --text-prst-1: 144px;
+        --text-prst-1--line-height: 100%;
+      --text-prst-1-sm: 88px;
+        --text-prst-1-sm--line-height: 100%;
+      
+      --text-prst-2: 64px;
+        --text-prst-2--line-height: 100%;
+      --text-prst-2-sm: 40px;
+        --text-prst-2-sm--line-height: 100%;
+
+      --text-prst-3: 36px;
+        --text-prst-3--line-height: 120%;
+      --text-prst-3-sm: 20px;
+        --text-prst-3-sm--line-height: 120%;
+
+      --text-prst-4: 28px;
+        --text-prst-4--line-height: 100%;
+      --text-prst-4-sm: 18px;
+        --text-prst-4-sm--line-height: 100%;
+      
+      --text-prst-5: 24px;
+        --text-prst-5--line-height: 150%;
+      --text-prst-5-sm: 14px;
+        --text-prst-5-sm--line-height: 150%;
+
+      --text-prst-6: 20px;
+        --text-prst-6--line-height: 150%;
+    }
+
+    body { 
+      @apply font-Rubik text-white bg-bleu-900 min-h-screen
+    }
+    button { @apply font-inherit }
+
+     .container { @apply w-full max-w-[1320px]  mx-auto px-[16px]}
+
+    .text-Preset1 {
+      @apply text-prst-1 font-medium tracking-normal
+    }
+
+    .text-Preset1-mobile {
+      @apply text-prst-1-sm font-medium tracking-normal
+    }
+
+    .text-Preset2-Md {
+      @apply text-prst-2 font-medium tracking-normal
+    }
+
+    .text-Preset2-Md-mobile {
+      @apply text-prst-2-sm font-medium tracking-normal
+    }
+
+    .text-Preset2-Lt {
+      @apply text-prst-2 font-light tracking-normal
+    }
+
+    .text-Preset2-Lt-mobile {
+      @apply text-prst-2-sm font-light tracking-normal
+    }
+
+    .text-Preset3 {
+      @apply text-prst-3 font-medium tracking-normal
+    }
+
+    .text-Preset3-mobile {
+      @apply text-prst-3-sm font-medium tracking-normal
+    }
+
+    .text-Preset4 {
+      @apply text-prst-4 font-medium tracking-normal
+    }
+
+    .text-Preset4-mobile {
+      @apply text-prst-4-sm font-medium tracking-normal
+    }
+
+    .text-Preset5-Md {
+      @apply text-prst-5 font-medium tracking-normal
+    }
+
+    .text-Preset5-Bs {
+      @apply text-prst-5 font-normal tracking-normal
+    }
+
+    .text-Preset5-mobile {
+      @apply text-prst-5-sm italic tracking-normal
+    }
+
+    .text-Preset6 {
+      @apply text-prst-6 italic tracking-normal
+    }
+
+    /*---- SPACING ----*/
+    .spacing-100 {@apply w-[8px]}
+    .spacing-200 {@apply w-[16px]}
+    .spacing-300 {@apply w-[24px]}
+    .spacing-400 {@apply w-[32px]}
+    .spacing-500 {@apply w-[40px]}
+    .spacing-600 {@apply w-[48px]}
+    .spacing-800 {@apply w-[64px]}
+    .spacing-1600 {@apply w-[128px]}
+    .spacing-1800 {@apply w-[144px]}
+    .spacing-2300 {@apply w-[184px]}
+
+
+    /*---- COMPONENTS ----*/
+
+    /* Logo */
+    .logo {@apply flex md:gap-[24px] sm:gap-[16px]}
+    .bg_icon {@apply md:w-[56px] md:h-[56px] sm:w-[40px] sm:h-[40px] rounded-[8px] flex items-center justify-center}
+
+    /* Light/Dark Mode Button */
+    .light_dark_mode {@apply flex md:gap-[16px] sm:gap-[8px] items-center}
+
+    /* Progress Bar */
+    .progress {@apply w-full h-[16px] bg-bleu-850 p-[4px] rounded-[999px] }
+    .progress_bar {@apply md:w-[300px] sm:w-[152px] h-[8px] bg-purple-600 rounded-[104px] }
+
+    /* Wrong Answer Notificatio */
+    .wrong_msg {@apply flex items-center gap-[8px] text-red-500 }
+
+    /* Button Submit*/
+    .btn_sub {@apply w-full md:h-[92px] sm:h-[56px] p-[32px] rounded-[24px] bg-purple-600 text-center shadow-[0px_16px_40px_0px_#8FA0C124] hover:bg-purple-100}
+    
+    /* Button with Icon*/
+    .btn_icon {@apply bg-bleu-850 flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-transparent shadow-[0px_16px_40px_0px_#313E5124] }
+    /*Note: class d icon li f fldakhel deayl had button hwa "bg_icon*/
+
+    /* Button Options */
+  .answers {
+    @apply flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-transparent shadow-[0px_16px_40px_0px_#313E5124] bg-bleu-850 hover:border-purple-600 active:border-purple-600 cursor-pointer
+  }
+  .answers_icons {@apply bg-grey-50 text-grey-500 hover:bg-purple-600}
+
+  .correct_answer {@apply flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-green-500 shadow-[0px_16px_40px_0px_#313E5124] bg-bleu-850 cursor-pointer}
+  .correct_icons {@apply bg-green-500}
+
+    .wrong_answer { @apply flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-red-500 shadow-[0px_16px_40px_0px_#313E5124] bg-bleu-850 cursor-pointer}
+    .wrong_icons {@apply bg-red-500}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+ <div class="relative z-10 min-h-screen w-full overflow-hidden">
+    
+  <img src="assets/Ellipse 8.png" alt="" 
+         class="absolute -top-0 -left-0 w-[600px] opacity-50 dark:opacity-10 pointer-events-none z-0">
+
+  <img src="assets/Ellipse 9.png" alt="" 
+         class="absolute -bottom-0 -right-0 w-[800px] opacity-50 dark:opacity-10 pointer-events-none z-0">
+
+  <div class="container relative z-10">
+    <header class="flex justify-between items-center pt-[97px] mb-[99px]">
+        <div class="flex items-center gap-4">
+          <span class="p-2 bg-white/10 rounded-xl">
+            <img src="assets/Subject Icon Container-4.png" alt="Accessibility" class="w-10 h-10" />
+          </span>
+          <h2 class="text-2xl font-medium tracking-wide">Accessibility</h2>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img src="assets/fluent_weather-sunny-16-regular.svg" alt="sun" class="w-6 h-6" />
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer" />
+            <div
+              class="w-12 h-7 bg-purple-600 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all">
+            </div>
+          </label>
+          <img src="assets/fluent_weather-moon-16-regular.svg" alt="moon" class="w-6 h-6" />
+        </div>
+      </header>
+
+    <section id="page_questions">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-32">
+        <div class="flex flex-col justify-between">
+        <div>
+          <p id="Ques_counter" class="text-color-grey-500 italic text-xl mb-7">
+            
+          </p>
+          <h1 id="question" class="text-4xl lg:text-5xl font-medium leading-tight">
+          </h1>
+        </div>
+
+        <div class="mt-12 lg:mt-0 bg-color-bleu-800 h-4 rounded-full p-1">
+          <div class="bg-purple-600 h-full rounded-full transition-all duration-500 w-0" id="progress"></div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="space-y-6" id="options">  </div>
+
+
+        <button id="next"
+          class="w-full mt-4 py-6 bg-purple-600 hover:bg-purple-500 text-white text-2xl font-bold rounded-3xl transition-all shadow-lg shadow-purple-900/20">
+          Submit Answers
+        </button>
+        <p id="alert" class="hidden">Please select an answer</p>
+      </div>
+      </div>
+    </section>
+      
+  </div>
+ </div>
+ <script src="A_quize.js"></script>
+ 
+</body>
+
+</html>
