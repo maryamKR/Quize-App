@@ -424,7 +424,7 @@ btnNext.addEventListener("click", () => {
   // If you don’t click any answer
   if (!isAnswered) {
     alert.classList.remove("hidden");
-    return;
+    return
   }
 
   alert.classList.add("hidden");
