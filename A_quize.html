@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Quize App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
     rel="stylesheet">
+    
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style type="text/tailwindcss">
     @theme {
@@ -27,7 +28,8 @@
       --color-green-500: #2FD887;
       --color-green-100: #E0FDEF;
 
-      --color-purple-600: #A729F5;
+      --color-purple-600: #A729F5; 
+      --color-purple-300: #d394fa; 
       --color-purple-100: #F6E7FF;
 
       --color-orange-400: #FF7E35;
@@ -70,50 +72,30 @@
     }
 
     body { 
-      @apply font-Rubik text-white bg-bleu-950 min-h-screen
+      @apply font-Rubik text-white bg-bleu-900 min-h-screen
     }
     button { @apply font-inherit }
 
      .container { @apply w-full max-w-[1320px]  mx-auto px-[16px]}
 
     .text-Preset1 {
-      @apply text-prst-1 font-medium tracking-normal
-    }
-
-    .text-Preset1-mobile {
-      @apply text-prst-1-sm font-medium tracking-normal
+      @apply md:text-prst-1 text-prst-1-sm font-medium tracking-normal
     }
 
     .text-Preset2-Md {
-      @apply text-prst-2 font-medium tracking-normal
-    }
-
-    .text-Preset2-Md-mobile {
-      @apply text-prst-2-sm font-medium tracking-normal
+      @apply md:text-prst-2 text-prst-2-sm font-medium tracking-normal
     }
 
     .text-Preset2-Lt {
-      @apply text-prst-2 font-light tracking-normal
-    }
-
-    .text-Preset2-Lt-mobile {
-      @apply text-prst-2-sm font-light tracking-normal
+      @apply md:text-prst-2 text-prst-2-sm font-light tracking-normal
     }
 
     .text-Preset3 {
-      @apply text-prst-3 font-medium tracking-normal
-    }
-
-    .text-Preset3-mobile {
-      @apply text-prst-3-sm font-medium tracking-normal
+      @apply md:text-prst-3 text-prst-3-sm font-medium tracking-normal
     }
 
     .text-Preset4 {
-      @apply text-prst-4 font-medium tracking-normal
-    }
-
-    .text-Preset4-mobile {
-      @apply text-prst-4-sm font-medium tracking-normal
+      @apply md:text-prst-4 text-prst-4-sm font-medium tracking-normal
     }
 
     .text-Preset5-Md {
@@ -121,11 +103,7 @@
     }
 
     .text-Preset5-Bs {
-      @apply text-prst-5 font-normal tracking-normal
-    }
-
-    .text-Preset5-mobile {
-      @apply text-prst-5-sm italic tracking-normal
+      @apply md:text-prst-5 text-prst-5-sm font-normal tracking-normal
     }
 
     .text-Preset6 {
@@ -148,7 +126,7 @@
     /*---- COMPONENTS ----*/
 
     /* Logo */
-    .logo {@apply flex md:gap-[24px] sm:gap-[16px]}
+    .logo {@apply flex items-center md:gap-[24px] sm:gap-[16px]}
     .bg_icon {@apply md:w-[56px] md:h-[56px] sm:w-[40px] sm:h-[40px] rounded-[8px] flex items-center justify-center}
 
     /* Light/Dark Mode Button */
@@ -159,41 +137,42 @@
     .progress_bar {@apply md:w-[300px] sm:w-[152px] h-[8px] bg-purple-600 rounded-[104px] }
 
     /* Wrong Answer Notificatio */
-    .wrong_msg {@apply flex items-center gap-[8px] text-red-500 }
+    .wrong_msg {@apply flex items-center justify-center gap-[8px] text-red-500 }
 
     /* Button Submit*/
-    .btn_sub {@apply w-full md:h-[92px] sm:h-[56px] p-[32px] rounded-[24px] bg-purple-600 text-center shadow-[0px_16px_40px_0px_#8FA0C124] hover:bg-purple-100}
-    
-    /* Button with Icon*/
-    .btn_icon {@apply bg-bleu-850 flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-transparent shadow-[0px_16px_40px_0px_#313E5124] }
-    /*Note: class d icon li f fldakhel deayl had button hwa "bg_icon*/
+     .btn_sub {@apply w-full md:h-[92px] sm:h-[56px] flex items-center justify-center rounded-[24px] bg-purple-600 text-center shadow-[0px_16px_40px_0px_#8FA0C124] cursor-pointer hover:bg-purple-300}
 
     /* Button Options */
   .answers {
-    @apply flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-transparent shadow-[0px_16px_40px_0px_#313E5124] bg-bleu-850 hover:border-purple-600 active:border-purple-600 cursor-pointer
+    @apply flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-transparent shadow-[0px_16px_40px_0px_#313E5124] bg-bleu-850 hover:border-purple-600 active:border-purple-600 cursor-pointer 
   }
-  .answers_icons {@apply bg-grey-50 text-grey-500 hover:bg-purple-600}
+  .answers_icons {@apply md:w-[56px] md:h-[56px] sm:w-[40px] sm:h-[40px] rounded-[8px] flex items-center justify-center }
 
   .correct_answer {@apply flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-green-500 shadow-[0px_16px_40px_0px_#313E5124] bg-bleu-850 cursor-pointer}
-  .correct_icons {@apply bg-green-500}
+  .correct_icons {@apply bg-green-500 text-white}
 
     .wrong_answer { @apply flex items-center gap-[32px] w-full h-[104px] p-[24px] rounded-[24px] border-[3px] border-red-500 shadow-[0px_16px_40px_0px_#313E5124] bg-bleu-850 cursor-pointer}
-    .wrong_icons {@apply bg-red-500}
+    .wrong_icons {@apply bg-red-500 text-white}
 
-
-
+    button { @apply outline-none }
 
 </style>
 </head>
 
-<body>
-  <div class="container">
-    <header class="flex justify-between items-center pt-[97px] mb-[99px]">
-        <div class="flex items-center gap-4">
-          <span class="p-2 bg-white/10 rounded-xl">
-            <img src="assets/Subject Icon Container-4.png" alt="Accessibility" class="w-10 h-10" />
+<body class="relative overflow-hidden">
+
+  <!-- BACKGROUND ELLIPSES -->
+  <img src="assets/Ellipse 8.png" class="absolute -top-[413px] left-[-539px] w-[977px] pointer-events-none -z-10">
+
+  <img src="assets/Ellipse 9.png" class="absolute top-[352px] right-0 w-[977px] pointer-events-none -z-10">
+  <div class="relative z-10">
+    <div class="container lg:space-y-[85px] md:space-y-[49px] sm:space-y-[32px] lg:pt-[83px] md:pt-[40px] pt-0">
+      <header class="flex justify-between items-center md:py-0 py-[16px]">
+        <div class="logo">
+          <span class="bg_icon bg-purple-100">
+            <img src="assets/logo.png" alt="Accessibility" class="md:w-[40px] md:h-[40px] w-[28px] h-[28px]" />
           </span>
-          <h2 class="text-2xl font-medium tracking-wide">Accessibility</h2>
+          <h2 class="text-Preset4">Accessibility</h2>
         </div>
 
         <div class="flex items-center gap-4">
@@ -208,37 +187,39 @@
         </div>
       </header>
 
-    <section id="page_questions">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-32">
-        <div class="flex flex-col justify-between">
-        <div>
-          <p id="Ques_counter" class="text-color-grey-500 italic text-xl mb-7">
-            
-          </p>
-          <h1 id="question" class="text-4xl lg:text-5xl font-medium leading-tight">
-          </h1>
+      <section id="page_questions">
+        <div class="grid lg:grid-cols-2 gap-[40px] lg:gap-32">
+          <div class="flex flex-col lg:gap-[184px] md:gap-[40px] gap-[24px]">
+            <div class="space-y-[24px] sm:space-y-[16px]">
+              <p id="Ques_counter" class="text-bleu-300 text-Preset6">
+
+              </p>
+              <h1 id="question" class="text-Preset3">
+              </h1>
+            </div>
+
+            <div class="lg:mt-0 bg-bleu-850 h-4 rounded-full p-1">
+              <div class="bg-purple-600 h-[8px] rounded-full transition-all duration-500 w-0" id="progress"></div>
+            </div>
+          </div>
+
+          <div class="space-y-[32px]">
+            <div class="space-y-[16px]" id="options"> </div>
+
+
+            <button id="next" class="btn_sub text-white text-Preset4 transition-all">
+              Submit Answers
+            </button>
+            <div id="alert" class="hidden flex items-center gap-3 whitespace-nowrap">
+              <img src="assets/fluent_dismiss-circle-16-regular.png" alt="">
+              <p class="text-Preset5-Bs text-white">Please select an answer</p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="mt-12 lg:mt-0 bg-color-bleu-800 h-4 rounded-full p-1">
-          <div class="bg-purple-600 h-full rounded-full transition-all duration-500 w-0" id="progress"></div>
-        </div>
-      </div>
-
-      <div class="space-y-6">
-        <div class="space-y-6" id="options">  </div>
-
-
-        <button id="next"
-          class="w-full mt-4 py-6 bg-purple-600 hover:bg-purple-500 text-white text-2xl font-bold rounded-3xl transition-all shadow-lg shadow-purple-900/20">
-          Submit Answers
-        </button>
-        <p id="alert" class="hidden">Please select an answer</p>
-      </div>
-      </div>
-    </section>
-      
+    </div>
   </div>
-
   <script src="A_quize.js"></script>
 </body>
 

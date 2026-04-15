@@ -4,11 +4,10 @@ const score = params.get("score");
 const total = params.get("total");
 
 document.getElementById("score").innerText = score;
-document.getElementById("out_of").innerText = total;
+document.getElementById("out_of").innerText = `out of ${total}`;
 
-let replayBtn = document.getElementById("replay")
+let replayBtn = document.getElementById("replay");
 const subject = new URLSearchParams(window.location.search).get("subject");
 replayBtn.addEventListener("click", () => {
   window.location.href = `A_subject.html`;
 });
-
