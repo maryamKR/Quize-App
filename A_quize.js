@@ -308,12 +308,16 @@ let currentQuestionIndex = 0;
 let score = 0;
 let isAnswered = false;
 
+
 const subjectNames = ["html", "css", "js", "accessibility"];
-const subject = new URLSearchParams(window.location.search).get("subject");
 
 function goToQuiz(index) {
   window.location.href = "A_quize.html?subject=" + subjectNames[index];
 }
+
+// gets the value of subject from the URL.
+const subject = new URLSearchParams(window.location.search).get("subject");
+
 
 let len_question = quizData[subject].length;
 
@@ -326,9 +330,9 @@ function StartQuize() {
 function showQuestion() {
   isAnswered = false;
   let currentQuestion = quizData[subject][currentQuestionIndex];
-  let ques_Num = currentQuestionIndex + 1;
 
   //Number of Question
+  let ques_Num = currentQuestionIndex + 1;
   ques_counter.innerHTML = `Question ${ques_Num} of ${len_question}`;
   questionElement.innerText = currentQuestion.question;
 
@@ -339,7 +343,6 @@ function showQuestion() {
     iconImg.className = "ml-auto hidden w-[32px] h-[32px]";
 
     const button = document.createElement("button");
-    //button.id = "btn_option";
     button.className = "answers transition-all group";
 
     // First span (A)
@@ -348,7 +351,7 @@ function showQuestion() {
       "answers_icons text-Preset4 bg-grey-50 text-grey-500 group-hover:bg-purple-600 group-hover:text-white";
     letterSpan.textContent = String.fromCharCode(65 + i);
 
-    // Second span (4.5:1)
+    // Second span (4.5:1)  
     const textSpan = document.createElement("span");
     textSpan.className = "text-2xl font-medium";
     textSpan.textContent = currentQuestion.options[i];
@@ -376,6 +379,7 @@ function selectAnswer(e) {
   const letterSpan = selectedButton.children[0];
   const iconImg = selectedButton.children[2];
   isAnswered = true;
+  isWrongAnswer = false
 
   document.getElementById("alert").classList.add("hidden");
 
@@ -394,13 +398,13 @@ function selectAnswer(e) {
   } 
   // if answer is wrong
   else { 
+    isWrongAnswer = true
     selectedButton.classList.add("wrong_answer");
     letterSpan.classList.add("wrong_icons");
 
     iconImg.src = "assets/fluent_dismiss-circle-16-regular.png";
     iconImg.classList.remove("hidden");
-
-    goToscore();
+    
   }
 
   // disable the other buttons
@@ -412,7 +416,6 @@ function selectAnswer(e) {
 function nextButton() {
   currentQuestionIndex++;
   if (currentQuestionIndex < len_question) {
-    console.log(currentQuestionIndex);
     showQuestion();
   } else {
     goToscore();
@@ -429,7 +432,12 @@ btnNext.addEventListener("click", () => {
 
   alert.classList.add("hidden");
 
-  if (currentQuestionIndex < len_question - 1) {
+   if (isWrongAnswer) {
+    goToscore();
+    return;
+  }
+
+  if (currentQuestionIndex < len_question -1) {
     nextButton();
   } else {
     goToscore();

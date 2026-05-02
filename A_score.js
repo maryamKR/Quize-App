@@ -7,7 +7,7 @@ document.getElementById("score").innerText = score;
 document.getElementById("out_of").innerText = `out of ${total}`;
 
 let replayBtn = document.getElementById("replay");
-const subject = new URLSearchParams(window.location.search).get("subject");
+//const subject = new URLSearchParams(window.location.search).get("subject");
 replayBtn.addEventListener("click", () => {
   window.location.href = `A_subject.html`;
 });
